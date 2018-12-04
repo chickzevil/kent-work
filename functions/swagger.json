@@ -1,0 +1,181 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "RESTful API"
+    },
+    "$schema": "https",
+    "host": "restful-c8ce2.firebaseapp.com",
+    "basePath": "/api",
+    "paths": {
+        "/users": {
+            "get": {
+                "tags": ["Users"],
+                "summary": "Read all users from database",
+                "description": "Read all users from database",
+                "produces": "application/json",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "$ref": "#/definitions/GetUser"
+                    }
+                }
+            },
+            "post": {
+                "tags": ["Users"],
+                "summary": "Create a new user and save to database",
+                "description": "Create a new user and save to database",
+                "parameters": [
+                    {
+                      "name": "UserData",
+                      "in": "body",
+                      "schema": {
+                        "$ref": "#/definitions/GetUserByID"
+                      }
+                    }
+                ],
+                "produces": "application/json",
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "$ref": "#/definitions/CreateUser"
+                        }
+                    }
+                }
+            }
+        },
+        "/users/{userid}": {
+            "parameters": [
+                {
+                    "name": "userid",
+                    "in": "path",
+                    "required": true,
+                    "description": "User ID",
+                    "type": "string"
+                }
+            ],
+            "get": {
+                "tags": ["Users"],
+                "summary": "Get a specific user",
+                "description": "Get a specific user",
+                "produces": "application/json",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/GetUserByID"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "put": {
+                "tags": ["Users"],
+                "summary": "Update details of a user",
+                "description": "Update details of a user",
+                "parameters": [
+                    {
+                      "name": "UserData",
+                      "in": "body",
+                      "schema": {
+                        "$ref": "#/definitions/UpdateUser"
+                      }
+                    }
+                ],
+                "produces": "application/json",
+                "responses": {
+                    "202": {
+                        "description": "Updated",
+                        "schema": {
+                            "$ref": "#/definitions/UpdateUser"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": ["Users"],
+                "summary": "Delete a user",
+                "description": "Delete a user",
+                "produces": "application/json",
+                "responses": {
+                    "202": {
+                        "description": "Removed",
+                        "schema": {
+                            "$ref": "#/definitions/DeleteUser"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "GetUser": {
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                }
+            }
+        },
+        "GetUserByID": {
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                }
+            }
+        },
+        "CreateUser": {
+            "required": [
+                "name",
+                "email"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                }
+            }
+        },
+        "UpdateUser": {
+            "required": [
+                "name",
+                "email"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                }
+            }
+        },
+        "DeleteUser": {
+            "required": [
+                "name",
+                "email"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
