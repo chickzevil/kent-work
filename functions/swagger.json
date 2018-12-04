@@ -5,7 +5,7 @@
         "title": "RESTful API"
     },
     "$schema": "https",
-    "host": "restful-c8ce2.firebaseapp.com",
+    "host": "xxx",
     "basePath": "/api",
     "paths": {
         "/users": {
