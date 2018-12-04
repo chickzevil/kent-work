@@ -14,12 +14,12 @@ app.use(bodyParser.urlencoded({
 }));
 
 const config = {
-	apiKey: "AIzaSyB0izn6BNHwOwrnQMa_7p355bPNQ9oEUxE",
-    authDomain: "restful-c8ce2.firebaseapp.com",
-    databaseURL: "https://restful-c8ce2.firebaseio.com",
-    projectId: "restful-c8ce2",
-    storageBucket: "restful-c8ce2.appspot.com",
-    messagingSenderId: "570356089960"
+    apiKey: "xxx",
+    authDomain: "xxx",
+    databaseURL: "xxx",
+    projectId: "xxx",
+    storageBucket: "xxx",
+    messagingSenderId: "xxx"
 };
 firebase.initializeApp(config);
 
